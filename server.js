@@ -22,6 +22,7 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
+app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "public")));
 app.get("/", (_req, res) => res.redirect("/student.html"));
 app.get("/student", (_req, res) => res.redirect("/student.html"));
@@ -755,3 +756,4 @@ io.on("connection", (socket) => {
 server.listen(PORT, () => {
   console.log(`German Sea Trap server started on http://localhost:${PORT}`);
 });
+
